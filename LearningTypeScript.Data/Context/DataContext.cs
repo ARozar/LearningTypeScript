@@ -16,6 +16,7 @@ namespace LearningTypeScript.Data.Context
             :base("DefaultConnection")
         {
             this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
         }
     }
 }
