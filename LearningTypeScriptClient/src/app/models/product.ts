@@ -1,15 +1,17 @@
 module inventoryApp.models {
     export interface IProduct {
-        productId: number;
+        id: number;
         name: string;
 		code: string;
+		stock: number
     }
 
     export class Product implements IProduct {
 
-		constructor(public productId: number,
+		constructor(public id: number,
 					public name: string,
-					public code: string) {
+					public code: string,
+					public stock: number) {
 		}
 	}
 }

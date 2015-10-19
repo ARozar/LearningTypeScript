@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div>
+    <acme-navbar/>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table class="table table-responsive table-stripped table-hover table-bordered">
+        <thead>
+          <td><strong>Product Name</strong></td>
+          <td><strong>Product Code</strong></td>
+          <td></td>
+          <td></td></td>
+        </thead>
+      <tr ng-repeat="product in vm.products">
+        <td>{{product.name}}</td>
+        <td>{{product.code}}</td>
+        <td class="col-md-1"><a class="btn btn-primary btn-block" ui-sref="product.edit(id: product.id)">edit</a></td>
+        <td class="col-md-1"><a class="btn btn-danger btn-block" ui-sref="product.delete(id: product.id)">delete</a></td>
+      </tr>
+    </table>
+    </div>
+  </div>
+  
+  
+</div>
