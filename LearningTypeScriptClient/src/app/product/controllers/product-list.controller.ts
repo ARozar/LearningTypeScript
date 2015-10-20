@@ -5,12 +5,12 @@ module inventoryApp.store {
 
             public products: Array<inventoryApp.models.IProduct>;
 
-          constructor(private $http: angular.IHttpService) {
+            constructor(private $http: angular.IHttpService) {
                 this.products = new Array<inventoryApp.models.IProduct>();
 
                 // todo move into resolver and maybe use $resource
                 $http(<angular.IRequestConfig>{
-                url: 'http://andrewlearningtypescript.azurewebsites.net/products',
+                url: 'https://andrewlearningtypescript.azurewebsites.net/products',
                 method: 'GET',
                 dataType: 'json'})
                     .then((result: angular.IHttpPromiseCallbackArg<Array<inventoryApp.models.IProduct>>) => {

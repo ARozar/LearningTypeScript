@@ -8,6 +8,10 @@ var server = http.createServer(app);
 
 app.use(express.static(path.resolve(__dirname, 'dist')));
 
+app.get('/', function (req, res) {
+  res.render('index.html', {});
+});
+
 app.get('/api/products/', function(req, res){
   res.send([
   {

@@ -8,14 +8,13 @@
         <thead>
           <td><strong>Product Name</strong></td>
           <td><strong>Product Code</strong></td>
-          <td></td>
-          <td></td></td>
+          <td colspan=2><a class="btn btn-success btn-block" ui-sref="product.create({id:product.id})">edit</a></td>
         </thead>
       <tr ng-repeat="product in vm.products">
         <td>{{product.name}}</td>
         <td>{{product.code}}</td>
-        <td class="col-md-1"><a class="btn btn-primary btn-block" ui-sref="product.edit(id: product.id)">edit</a></td>
-        <td class="col-md-1"><a class="btn btn-danger btn-block" ui-sref="product.delete(id: product.id)">delete</a></td>
+        <td class="col-md-1"><a class="btn btn-primary btn-block" ui-sref="product.details({id:product.id})">edit</a></td>
+        <td class="col-md-1"><a class="btn btn-danger btn-block" ui-sref="product.delete({id:product.id})">delete</a></td>
       </tr>
     </table>
     </div>

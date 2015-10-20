@@ -10,6 +10,17 @@ module inventoryApp.store {
               templateUrl: 'app/product/views/product-list.html',
               controller: inventoryApp.store.ProductListController,
               controllerAs: 'vm'
+            }).state('product', {
+              url: '/product/:id',
+              controller: inventoryApp.store.ProductController,
+              controllerAs: 'vm',
+              abstract: true,
+              template: '<ui-view/>'
+            }).state('product.details', {
+              url: '/Details',
+              controller: inventoryApp.store.ProductController,
+              controllerAs: 'vm',
+              templateUrl: 'app/product/views/product-details.html'
             });
         }
     }
