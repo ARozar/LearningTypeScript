@@ -10,7 +10,7 @@ module inventoryApp.store {
 
                 // todo move into resolver and maybe use $resource
                 $http(<angular.IRequestConfig>{
-                url: 'api/products/',
+                url: 'http://andrewlearningtypescript.azurewebsites.net/products',
                 method: 'GET',
                 dataType: 'json'})
                     .then((result: angular.IHttpPromiseCallbackArg<Array<inventoryApp.models.IProduct>>) => {
