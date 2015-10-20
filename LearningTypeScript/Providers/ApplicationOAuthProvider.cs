@@ -48,6 +48,8 @@ namespace LearningTypeScript.Providers
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
+            //all use of token enpoint to everyone
+            context.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
         }
 
         public override Task TokenEndpoint(OAuthTokenEndpointContext context)
