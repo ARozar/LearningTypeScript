@@ -3,7 +3,7 @@ module inventoryApp {
 
   export class Config {
     /** @ngInject */
-    constructor($logProvider: ng.ILogProvider, toastr: Toastr) {
+    constructor($logProvider: angular.ILogProvider, toastr: Toastr) {
       // enable log
       $logProvider.debugEnabled(true);
       // set options third-party lib

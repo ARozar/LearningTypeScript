@@ -16,7 +16,8 @@ module inventoryApp.store {
               controllerAs: 'vm',
               abstract: true,
               template: '<ui-view/>'
-            }).state('product.details', {
+            })
+            .state('product.details', {
               url: '/Details',
               controller: inventoryApp.store.ProductController,
               controllerAs: 'vm',
