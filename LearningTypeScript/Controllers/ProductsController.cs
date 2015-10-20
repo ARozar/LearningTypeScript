@@ -34,7 +34,10 @@ namespace LearningTypeScript.Controllers
         [ResponseType(typeof(Product))]
         public IHttpActionResult GetProduct(int id)
         {
-            Product product = _productService.Find(id);
+            Product product = _productService
+                .Include(prod=>prod.InventoryItems)
+                .FirstOrDefault(p=>p.Id==id);
+
             if (product == null)
             {
                 return NotFound();
