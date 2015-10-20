@@ -21,6 +21,16 @@ module inventoryApp.store {
               controller: inventoryApp.store.ProductController,
               controllerAs: 'vm',
               templateUrl: 'app/product/views/product-details.html'
+            }).state('product.create', {
+              url: '/Create',
+              controller: inventoryApp.store.ProductController,
+              controllerAs: 'vm',
+              templateUrl: 'app/product/views/product-create.html'
+            }).state('product.delete', {
+              url: '/Delete',
+              controller: inventoryApp.store.ProductController,
+              controllerAs: 'vm',
+              templateUrl: 'app/product/views/product-delete.html'
             });
         }
     }
