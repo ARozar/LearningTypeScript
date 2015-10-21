@@ -5,6 +5,10 @@ module inventoryApp.models {
 		code: string;
 		stock: number
     }
+    
+    export interface IApiProduct extends ng.resource.IResource<IProduct>{
+    	
+    }
 
     export class Product implements IProduct {
 

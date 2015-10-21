@@ -5,10 +5,10 @@ module inventoryApp.store {
         public code: string;
         public product: inventoryApp.models.IProduct;
         
-        constructor(private $stateParams: ng.ui.IStateParamsService,private $resource: any,private $http: angular.IHttpService){
+        constructor(private $stateParams: ng.ui.IStateParamsService,private $resource: ng.resource.IResourceService,private $http: angular.IHttpService){
             var productResource = $resource('https://andrewlearningtypescript.azurewebsites.net/products/:productId', {productId:'@id'});
             //TODO refactor into service
-            productResource.get({productId:$stateParams['id']}, (data)=> {
+            productResource.get({productId:$stateParams['id']}, (data: any)=> {
                 this.code = data.code;
                 this.name = data.name;
             }); 
@@ -29,4 +29,25 @@ module inventoryApp.store {
     }
     
     angular.module('inventoryApp').controller('ProductController',ProductController);
+    
+      export interface IProductResource extends ng.resource.IResourceClass<inventoryApp.models.IApiProduct> {
+  }
+  
+   export class Resource {
+        public static Client($resource: ng.resource.IResourceService): IProductResource {
+            var url = "https://andrewlearningtypescript.azurewebsites.net/products/:productId";
+            
+            var updateAction : angular.resource.IActionDescriptor = {
+            method: 'PUT',
+            isArray: false
+            };        
+            
+            var resource = $resource(url, {productId:'@id'},
+            {
+                update:updateAction
+            });
+
+            return <IProductResource> resource;
+        }
+    }
 }
