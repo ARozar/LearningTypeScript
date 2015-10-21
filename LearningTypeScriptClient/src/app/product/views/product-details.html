@@ -14,13 +14,13 @@
               <div class="form-group" ng-class="{ 'has-error': productForm.name.$dirty && productForm.name.$invalid }">
                 <label class="control-label" for="name">Name</label>
                 <div class="controls">
-                  <input name="name" type="text" data-ng-model="vm.name" id="name" class="form-control" placeholder="Name" required>
+                  <input name="name" type="text" data-ng-model="vm.product.name" id="name" class="form-control" placeholder="Name" required>
                 </div>
               </div>
               <div class="form-group" ng-class="{ 'has-error': productForm.name.$dirty && productForm.name.$invalid }">
                 <label class="control-label" for="Code">Code</label>
                 <div class="controls">
-                  <textarea name="Code" data-ng-model="vm.code" id="Code" class="form-control" cols="30" rows="10" placeholder="Code"></textarea>
+                  <textarea name="Code" data-ng-model="vm.product.code" id="Code" class="form-control" cols="30" rows="10" placeholder="Code"></textarea>
                 </div>
               </div>
               <div class="form-group">
