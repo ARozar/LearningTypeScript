@@ -9,13 +9,19 @@ module inventoryApp.store {
               url: '/products',
               templateUrl: 'app/product/views/product-list.html',
               controller: inventoryApp.store.ProductListController,
-              controllerAs: 'vm'
+              controllerAs: 'vm',
+              resolve:{
+                products: productsResolver
+              }
             }).state('product', {
               url: '/product/:id',
               controller: inventoryApp.store.ProductController,
               controllerAs: 'vm',
               abstract: true,
-              template: '<ui-view/>'
+              template: '<ui-view/>',
+              resolve: {
+                product: productResolver
+              }
             })
             .state('product.details', {
               url: '/Details',
@@ -35,5 +41,16 @@ module inventoryApp.store {
             });
         }
     }
+    
+    productsResolver.$inject = ['productResource'];
+    function productsResolver(productResource: IProductResource){
+          return productResource.query().$promise;
+    }
+    
+    productResolver.$inject = ['productResource','$stateParams'];
+    function productResolver(productResource: IProductResource, $stateParams: ng.ui.IStateParamsService){
+          return productResource.get({productId:$stateParams['id']}).$promise
+    }
+    
     angular.module('inventoryApp').config(RouterConfig);
 }
