@@ -2,21 +2,18 @@ module inventoryApp {
   'use strict';
 
   export class MainController {
-    public awesomeThings: ITecThing[];
-    public webDevTec: WebDevTecService;
     public classAnimation: string;
 
     /* @ngInject */
-    constructor ($timeout: angular.ITimeoutService, webDevTec: WebDevTecService, toastr: Toastr) {
-      this.awesomeThings = new Array();
-      this.webDevTec = webDevTec;
+    constructor ($timeout: angular.ITimeoutService, toastr: Toastr) {
+
       this.classAnimation = '';
 
       this.activate($timeout);
     }
 
     activate($timeout: angular.ITimeoutService) {
-      this.getWebDevTec();
+
 
       var self = this;
 
@@ -30,8 +27,6 @@ module inventoryApp {
       this.classAnimation = '';
     }
 
-    getWebDevTec() {
-      this.awesomeThings = this.webDevTec.tec;
-    }
+
   }
 }
