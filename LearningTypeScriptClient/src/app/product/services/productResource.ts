@@ -6,8 +6,10 @@ module inventoryApp.store {
 
    export class ProductResource  {
        //Factory method that creates a strongly typed resource class
-        public static ResourceClass($resource: angular.resource.IResourceService): IProductResource {
-            var url = "https://andrewlearningtypescript.azurewebsites.net/products/:productId";
+        public static ResourceClass($resource: angular.resource.IResourceService,
+         appSettings: inventoryApp.IAppSettings): IProductResource {
+             
+            var url = appSettings.baseUrl+ "/products/:productId";
             
             var updateAction : angular.resource.IActionDescriptor = {
                 method: 'PUT',
@@ -22,6 +24,6 @@ module inventoryApp.store {
             return  resource;
         }
     }
-    
+    //ProductResource.$inject = ['$resource'];
     angular.module('inventoryApp').factory('productResource',ProductResource.ResourceClass);
 }
