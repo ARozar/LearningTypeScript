@@ -24,6 +24,6 @@ module inventoryApp.store {
             return  resource;
         }
     }
-    //ProductResource.$inject = ['$resource'];
+    ProductResource.ResourceClass.$inject = ['$resource','appSettings'];
     angular.module('inventoryApp').factory('productResource',ProductResource.ResourceClass);
 }
