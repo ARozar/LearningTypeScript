@@ -1,4 +1,4 @@
-module inventoryApp.store {
+module inventoryApp.product {
 
     export interface IProductController {
         createOrUpdate(): void;

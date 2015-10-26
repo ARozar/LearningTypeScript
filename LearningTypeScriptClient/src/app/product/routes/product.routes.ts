@@ -1,4 +1,4 @@
-module inventoryApp.store {
+module inventoryApp.product {
     'use strict';
 
   class RouterConfig {
@@ -8,14 +8,14 @@ module inventoryApp.store {
             .state('products', {
               url: '/products',
               templateUrl: 'app/product/views/product-list.html',
-              controller: inventoryApp.store.ProductListController,
+              controller: inventoryApp.product.ProductListController,
               controllerAs: 'vm',
               resolve:{
                 products: productsResolver
               }
             }).state('product', {
               url: '/product/:id',
-              controller: inventoryApp.store.ProductController,
+              controller: inventoryApp.product.ProductController,
               controllerAs: 'vm',
               abstract: true,
               template: '<ui-view/>',
@@ -25,17 +25,17 @@ module inventoryApp.store {
             })
             .state('product.details', {
               url: '/Details',
-              controller: inventoryApp.store.ProductController,
+              controller: inventoryApp.product.ProductController,
               controllerAs: 'vm',
               templateUrl: 'app/product/views/product-details.html'
             }).state('product.create', {
               url: '/Create',
-              controller: inventoryApp.store.ProductController,
+              controller: inventoryApp.product.ProductController,
               controllerAs: 'vm',
               templateUrl: 'app/product/views/product-create.html'
             }).state('product.delete', {
               url: '/Delete',
-              controller: inventoryApp.store.ProductController,
+              controller: inventoryApp.product.ProductController,
               controllerAs: 'vm',
               templateUrl: 'app/product/views/product-delete.html'
             });

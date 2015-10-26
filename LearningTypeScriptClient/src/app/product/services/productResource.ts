@@ -1,4 +1,4 @@
-module inventoryApp.store {
+module inventoryApp.product {
     
 	export interface IProductResource extends angular.resource.IResourceClass<inventoryApp.models.IApiProduct> {
 		update(id: any,product: inventoryApp.models.IApiProduct): inventoryApp.models.IApiProduct

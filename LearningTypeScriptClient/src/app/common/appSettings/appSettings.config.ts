@@ -9,6 +9,6 @@ module inventoryApp {
 	config.$inject = ['appSettingsProvider'];
     function config(
         appSettings: inventoryApp.IAppSettingsProvider): void {//reference provider interface
-        appSettings.configure('https://andrewlearningtypescript.azurewebsites.net');
+        //appSettings.configure('https://andrewlearningtypescript.azurewebsites.net');
     }
 }

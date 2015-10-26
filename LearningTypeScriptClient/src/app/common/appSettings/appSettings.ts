@@ -10,7 +10,7 @@ module inventoryApp {
 		public baseUrl;
 		
 		constructor(){
-			this.baseUrl = '';
+			this.baseUrl = 'http://localhost:61034';
 		}
 	}
 	//interface to define this specific provider as it will appear in the config phase

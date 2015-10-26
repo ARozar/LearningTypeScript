@@ -1,7 +1,10 @@
-module inventoryApp.store {
+module inventoryApp.product {
+    export interface IProductListController {
+        
+    }
 
      /*@ngInject*/
-     export class ProductListController {
+     export class ProductListController implements IProductListController {
 
         constructor(public products: Array<inventoryApp.models.IProduct>) {
            

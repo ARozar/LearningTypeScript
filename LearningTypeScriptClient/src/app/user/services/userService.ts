@@ -2,26 +2,26 @@ module inventoryApp.user {
 	"use strict";
 
 	export interface IUserService {
-		registerUser(user: any): angular.IHttpPromise<any>;
-		login(loginModel: any): angular.IHttpPromise<any>;
+		registerUser(loginModel: LoginVm): angular.IHttpPromise<any>;
+		login(loginModel: LoginVm): angular.IHttpPromise<User>;
 	}
 	
-	class UserService {
+	class UserService implements IUserService{
 
 		constructor(private $http: angular.IHttpService, private appSettings: inventoryApp.IAppSettings) {
 
 		}
-		registerUser(user: any): angular.IHttpPromise<any> {
+		registerUser(loginModel: LoginVm): angular.IHttpPromise<any> {
 			var requestConfig: angular.IRequestConfig = {
 				url: this.appSettings.baseUrl + "/api/Account/Register",
 				method: 'POST',
-				data: user
+				data: loginModel
 			};
 
 			return this.$http(requestConfig);
 		}
 
-		login(loginModel: any): angular.IHttpPromise<any> {
+		login(loginModel: LoginVm): angular.IHttpPromise<User> {
 
 			var requestConfig: angular.IRequestConfig = {
 				url: this.appSettings.baseUrl + "/Token",//make sure we hit ApplicationOAuthProvider
@@ -41,4 +41,10 @@ module inventoryApp.user {
 			return this.$http(requestConfig);
 		}
 	}
+	userServiceFactory.$inject = ['$http','appSettings'];
+	function userServiceFactory($http: angular.IHttpService, appSettings: inventoryApp.IAppSettings){
+		return new UserService($http,appSettings);
+	}
+	
+	angular.module('inventoryApp').factory('UserService',userServiceFactory);
 }
