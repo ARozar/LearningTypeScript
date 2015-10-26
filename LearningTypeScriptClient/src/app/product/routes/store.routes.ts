@@ -57,6 +57,7 @@ module inventoryApp.store {
         promise.resolve(new productResource());
         return promise.promise;
       }else{
+      //update of existing product
         return productResource.get({productId:id}).$promise
       }
       

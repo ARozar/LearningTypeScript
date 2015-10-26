@@ -22,8 +22,9 @@ module inventoryApp {
         private config: IAppSettings;
 
 		constructor(){
-			this.config = new AppSettings();
+			this.config = new AppSettings();//new up the object that will be the injected service
 		}
+        //functions
         configure(baseUrl: string): void {
            this.config.baseUrl = baseUrl;
         }

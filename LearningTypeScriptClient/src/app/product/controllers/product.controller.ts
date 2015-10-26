@@ -7,16 +7,20 @@ module inventoryApp.store {
 
     export class ProductController implements IProductController {
 
-        constructor(public product: inventoryApp.models.IApiProduct, public productResource: IProductResource, private toastr: Toastr) {
+        constructor(public product: inventoryApp.models.IApiProduct,//from resolver
+        public productResource: IProductResource,
+        private toastr: Toastr) {
 
         }
 
         createOrUpdate(): void {
+            //create
             if (typeof this.product.id === 'undefined') {
                 this.product.$save()
                     .then(() => {
                         this.toastr.success("Sucessfully created product.");
                     });
+            //update
             } else {
                 this.productResource.update({ id: this.product.id }, this.product)
                     .$promise.then(() => {
