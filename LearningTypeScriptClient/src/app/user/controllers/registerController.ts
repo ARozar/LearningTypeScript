@@ -15,9 +15,9 @@ module inventoryApp.user {
 		
 		register(){
 			var loginVm: LoginVm =  {
-				userName: this.name,
-				password: this.password,
-				confirmPassword: this.confirmPassword
+				UserName: this.name,
+				Password: this.password,
+				ConfirmPassword: this.confirmPassword
 			};
 			
 			this.UserService.registerUser(loginVm)

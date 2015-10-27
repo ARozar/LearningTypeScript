@@ -6,12 +6,22 @@ module inventoryApp.user {
 	}
 	
 	export class LoginController implements ILogincontroller{
-		constructor(private userService: IUserService, toastr: Toastr){
+		private name: string;
+		private password: string;
+		
+		constructor(private UserService: IUserService, toastr: Toastr){
 			
 		}
 		
-		login(loginVm :LoginVm){
-			
+		login(){
+			var loginVm :LoginVm = { 
+				UserName: this.name, 
+				Password: this.password,
+				ConfirmPassword: this.password
+			}
+			this.UserService.login(loginVm)
+			.then((token: any)=>{console.log(token)})
+			.catch((data)=>{console.log(data)});
 		}
 	}
 	

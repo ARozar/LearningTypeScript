@@ -1,9 +1,9 @@
 module inventoryApp.user {
 	
 	export class LoginVm {
-		constructor(public userName: string, 
-		public password: string,
-		public confirmPassword: string){
+		constructor(public UserName: string, 
+		public Password: string,
+		public ConfirmPassword: string){
 			
 		}
 	}

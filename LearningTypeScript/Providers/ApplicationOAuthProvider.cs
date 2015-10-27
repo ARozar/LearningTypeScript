@@ -29,6 +29,9 @@ namespace LearningTypeScript.Providers
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
+            //all use of token enpoint to everyone
+            context.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
             ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
@@ -48,8 +51,7 @@ namespace LearningTypeScript.Providers
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
-            //all use of token enpoint to everyone
-            context.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+
         }
 
         public override Task TokenEndpoint(OAuthTokenEndpointContext context)
@@ -69,7 +71,6 @@ namespace LearningTypeScript.Providers
             {
                 context.Validated();
             }
-
             return Task.FromResult<object>(null);
         }
 

@@ -12,9 +12,9 @@
           <form name="registerForm" class="form-horizontal" novalidate>
             <fieldset>
               <div class="form-group" ng-class="{ 'has-error': registerForm.name.$dirty && registerForm.name.$invalid }">
-                <label class="control-label" for="name">Username</label>
+                <label class="control-label" for="name">Email</label>
                 <div class="controls">
-                  <input name="name" type="text" data-ng-model="vm.name" id="name" class="form-control" placeholder="Username" required>
+                  <input name="name" type="text" data-ng-model="vm.name" id="name" class="form-control" placeholder="Email" required>
                 </div>
               </div>
               <div class="form-group" ng-class="{ 'has-error': registerForm.name.$dirty && registerForm.name.$invalid }">
@@ -25,6 +25,7 @@
                   </textarea>
                 </div>
               </div>
+              <!--TODO validation-->
               <div class="form-group" ng-class="{ 'has-error': registerForm.name.$dirty && registerForm.name.$invalid }">
                 <label class="control-label" for="confirmPassword">Confirm password</label>
                 <div class="controls">

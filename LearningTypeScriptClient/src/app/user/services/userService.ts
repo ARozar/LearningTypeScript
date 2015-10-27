@@ -33,7 +33,7 @@ module inventoryApp.user {
 					for (var d in data)
 						str.push(encodeURIComponent(d) + "=" +
 							encodeURIComponent(data[d]));
-					return str.join("&");
+					return str.join("&")+"&grant_type=password";
 				},
 				data: loginModel
 			};
