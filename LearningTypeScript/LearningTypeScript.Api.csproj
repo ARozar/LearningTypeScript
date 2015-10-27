@@ -249,6 +249,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Security\201510270757125_InitialCreate.cs" />
+    <Compile Include="Migrations\Security\201510270757125_InitialCreate.Designer.cs">
+      <DependentUpon>201510270757125_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Security\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -332,6 +337,11 @@
       <Project>{b5a9ffc2-7c2d-4b82-be75-a83c1e52c32e}</Project>
       <Name>LearningTypeScript.Ioc</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\Security\201510270757125_InitialCreate.resx">
+      <DependentUpon>201510270757125_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

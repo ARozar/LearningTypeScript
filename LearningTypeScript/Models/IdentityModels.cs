@@ -29,9 +29,5 @@ namespace LearningTypeScript.Models
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<LearningTypeScript.Domain.Core.Product> Products { get; set; }
-
-        public System.Data.Entity.DbSet<LearningTypeScript.Domain.Core.InventoryItem> InventoryItems { get; set; }
     }
 }
