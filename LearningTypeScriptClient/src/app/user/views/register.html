@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div>
+    <acme-navbar/>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <section>
+        <div class="page-header">
+          <h1>Register</h1>
+        </div>
+        <div class="col-md-12">
+          <form name="registerForm" class="form-horizontal" novalidate>
+            <fieldset>
+              <div class="form-group" ng-class="{ 'has-error': registerForm.name.$dirty && registerForm.name.$invalid }">
+                <label class="control-label" for="name">Username</label>
+                <div class="controls">
+                  <input name="name" type="text" data-ng-model="vm.name" id="name" class="form-control" placeholder="Username" required>
+                </div>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error': registerForm.name.$dirty && registerForm.name.$invalid }">
+                <label class="control-label" for="password">Password</label>
+                <div class="controls">
+                  <input type="password" name="password" data-ng-model="vm.password" id="password" class="form-control" cols="30" rows="10"
+                  placeholder="Password">
+                  </textarea>
+                </div>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error': registerForm.name.$dirty && registerForm.name.$invalid }">
+                <label class="control-label" for="confirmPassword">Confirm password</label>
+                <div class="controls">
+                  <input type="password" name="confirmPassword" data-ng-model="vm.confirmPassword" id="confirmPassword" class="form-control" cols="30" rows="10"
+                  placeholder="Confrim Password">
+                  </textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-default" ng-click="vm.register()">
+              </div>
+              <div data-ng-show="error" class="text-danger">
+                <strong data-ng-bind="error"></strong>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+
+      </section>
+    </div>
+  </div>
+
+
+</div>
