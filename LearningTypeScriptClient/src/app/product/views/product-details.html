@@ -10,7 +10,6 @@
         </div>
         <div class="col-md-12">
           <form name="productForm" class="form-horizontal" novalidate>
-            <fieldset>
               <div class="form-group" ng-class="{ 'has-error': productForm.name.$dirty && productForm.name.$invalid }">
                 <label class="control-label" for="name">Name</label>
                 <div class="controls">
@@ -29,7 +28,6 @@
               <div data-ng-show="error" class="text-danger">
                 <strong data-ng-bind="error"></strong>
               </div>
-            </fieldset>
           </form>
         </div>
         
