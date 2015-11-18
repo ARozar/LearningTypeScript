@@ -4,9 +4,13 @@ module inventoryApp.user {
 	export interface IUserService {
 		registerUser(loginModel: LoginVm): angular.IHttpPromise<any>;
 		login(loginModel: LoginVm): angular.IHttpPromise<User>;
+		getCurrentUser(): User;
+		setCurrentUser(user: User): void;
 	}
 	
 	class UserService implements IUserService{
+		
+		private currentUser: User;
 
 		constructor(private $http: angular.IHttpService, private appSettings: inventoryApp.IAppSettings) {
 
@@ -39,6 +43,14 @@ module inventoryApp.user {
 			};
 
 			return this.$http(requestConfig);
+		}
+		
+		getCurrentUser(): User{
+			return this.currentUser;
+		}
+		
+		setCurrentUser(user: User): void{
+			this.currentUser = user;
 		}
 	}
 	userServiceFactory.$inject = ['$http','appSettings'];

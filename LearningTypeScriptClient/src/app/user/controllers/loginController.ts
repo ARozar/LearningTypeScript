@@ -20,7 +20,10 @@ module inventoryApp.user {
 				ConfirmPassword: this.password
 			}
 			this.UserService.login(loginVm)
-			.then((token: any)=>{console.log(token)})
+			.then((response: any)=>{
+				console.log(response.data.access_token)
+				this.UserService.setCurrentUser(<User>{ userName: this.name, token: response.data.access_token});
+			})
 			.catch((data)=>{console.log(data)});
 		}
 	}
